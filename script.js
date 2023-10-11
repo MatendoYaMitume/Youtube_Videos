@@ -8,7 +8,7 @@ const videoFilter = document.getElementById('video-filter');
 
 // Function to fetch and display YouTube channel videos
 function fetchYouTubeVideos() {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=500`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=5000`)
         .then(response => response.json())
         .then(data => {
             const videos = data.items;
