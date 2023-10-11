@@ -56,8 +56,8 @@ h1 {
 
 /* Style the logo image */
 .logo-container img {
-    width: 20px; /* Adjust the width of your logo as needed */
-    height: 20PX; /* Maintain the aspect ratio */
+    width: 50px; /* Adjust the width of your logo as needed */
+    height: 50PX; /* Maintain the aspect ratio */
     Align: Left
 }
 
