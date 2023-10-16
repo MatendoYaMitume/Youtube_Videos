@@ -5,10 +5,11 @@ const apiKey = 'AIzaSyDiAN6V5Vu3sp_08BYfq4U8XQzzIQCJY9U';
 const videoList = document.getElementById('video-list');
 const filterButton = document.getElementById('filter-button');
 const videoFilter = document.getElementById('video-filter');
+const maxResults = 500; // Adjust the number as needed;
 
 // Function to fetch and display YouTube channel videos
 function fetchYouTubeVideos() {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=300`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=${maxResults}`)
         .then(response => response.json())
         .then(data => {
             const videos = data.items;
