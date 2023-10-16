@@ -10,7 +10,9 @@ let nextPageToken = '';
 
 // Function to fetch and display YouTube channel videos
 function fetchYouTubeVideos() {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=${maxResults}`)
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}&pageToken=${nextPageToken}`;
+  
+    //fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=${maxResults}`)
         .then(response => response.json())
         .then(data => {
             const videos = data.items;
