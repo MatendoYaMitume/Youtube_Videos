@@ -6,6 +6,7 @@ const videoList = document.getElementById('video-list');
 const filterButton = document.getElementById('filter-button');
 const videoFilter = document.getElementById('video-filter');
 const maxResults = 500; // Adjust the number as needed;
+let nextPageToken = '';
 
 // Function to fetch and display YouTube channel videos
 function fetchYouTubeVideos() {
@@ -29,7 +30,11 @@ function fetchYouTubeVideos() {
         })
         .catch(error => console.error('Error fetching videos:', error));
 }
-
+ // If there are more results, update nextPageToken and call fetchVideos() again
+      if (data.nextPageToken) {
+        nextPageToken = data.nextPageToken;
+        fetchVideos();
+      }
 filterButton.addEventListener('click', () => {
     const filterText = videoFilter.value.toLowerCase();
     const videoItems = document.querySelectorAll('.video-item');
