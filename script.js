@@ -8,6 +8,29 @@ const videoFilter = document.getElementById('video-filter');
 const maxResults = 500; // Adjust the number as needed;
 let nextPageToken = '';
 
+// Function to fetch videos
+function fetchVideos() {
+  const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}&pageToken=${nextPageToken}`;
+  
+  // Make an API request
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Process the data and display the videos on your website
+      
+      // If there are more results, update nextPageToken and call fetchVideos() again
+      if (data.nextPageToken) {
+        nextPageToken = data.nextPageToken;
+        fetchVideos();
+      }
+    })
+    .catch(error => console.error('Error fetching videos:', error));
+}
+
+// Initial call to fetch videos
+fetchVideos();
+
+/****
 // Function to fetch and display YouTube channel videos
 function fetchYouTubeVideos() {
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}&pageToken=${nextPageToken}`;
@@ -52,3 +75,4 @@ filterButton.addEventListener('click', () => {
 });
 
 fetchYouTubeVideos();
+**/
