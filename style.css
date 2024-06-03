@@ -61,10 +61,12 @@ h1 {
     Align: Left
 }
 footer {
-            background-color: #333;
+            background-color: blue; /* Changed background color to blue */
             color: #fff;
             padding: 20px;
             text-align: center;
+            display: flex; /* Horizontally aligning the content */
+            justify-content: center; /* Horizontally centering the content */
         }
 
         footer ul {
@@ -87,4 +89,3 @@ footer {
                 margin: 5px 0;
             }
         }
-
